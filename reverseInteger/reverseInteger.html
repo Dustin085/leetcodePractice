@@ -9,6 +9,8 @@
 
 <body>
     <script>
+
+        // 題目：Reverse Integer
         /*
         Given a signed 32-bit integer x, return x with its digits reversed.
         If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
@@ -16,8 +18,7 @@
         Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
         */
 
-        let x;
-
+        /*
         // 先處理個位數
         let copy = x;
         let dit;
@@ -30,14 +31,23 @@
         dit = copy % 10 ** (i + 1);
         copy -= dit * 10(i);
         rev = rev * 10 + dit;
+        */
 
         // 正式開始
-        let i = 0;
+        let x = 54321;
+        let copy = Math.abs(x);
+        let rev = 0;
         while (copy > 0) {
-            const dit = copy % (10 ** (i + 1));
+            const dit = copy % 10;
             copy -= dit;
-            rev = rev * (10 ** i) + dit;
+            copy = parseInt(copy / 10);
+            rev = rev * 10 + dit;
         }
+        if (x < 0) {
+            rev = -rev;
+        }
+        console.log(rev);
+        // return rev;
 
     </script>
 </body>
